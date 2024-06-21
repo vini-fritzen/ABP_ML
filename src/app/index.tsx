@@ -17,7 +17,7 @@ const HomeScreen = () => {
             blood_glucose_level: '',
         },
     });
-    const [prediction, setPrediction] = useState<number | null>(null);
+    const [message, setMessage] = useState<string | null>(null);
 
     const onSubmit = async (data: any) => {
         try {
@@ -46,7 +46,7 @@ const HomeScreen = () => {
 
             if (response.ok) {
                 const responseData = await response.json();
-                setPrediction(responseData.prediction);
+                setMessage(responseData.message);
             } else {
                 console.error('Erro ao enviar dados:', response.statusText);
             }
@@ -240,8 +240,8 @@ const HomeScreen = () => {
             <Pressable style={styles.button} onPress={handleSubmit(onSubmit)}>
                 <Text style={styles.buttonText}>Enviar</Text>
             </Pressable>
-            {prediction !== null && (
-                <Text style={styles.result}>Predição: {prediction > 0.5 ? 'Diabético' : 'Não Diabético'}</Text>
+            {message && (
+                <Text style={styles.result}>{message}</Text>
             )}
         </View>
     );
