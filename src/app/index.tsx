@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 24,
-        marginBottom: 20,
+        marginBottom: 5,
         textAlign: 'center',
     },
     input: {
@@ -279,6 +279,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
         fontSize: 18,
         textAlign: 'center',
+        marginBottom: 10,
     },
     error: {
         color: 'red',
